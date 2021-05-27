@@ -18,7 +18,7 @@ public class Script : MonoBehaviour
 		for (int i=0; i<10; i++) {
 			float x = UnityEngine.Random.Range(-4f, 4f);
 			float z = UnityEngine.Random.Range(-4f, 4f);
-			test[i] = Instantiate(myPrefab, new Vector3(x, startPosition, z), Quaternion.identity, this.transform);
+			test[i] = Instantiate(myPrefab, new Vector3(x, startPosition, z), myPrefab.rotation, this.transform);
 		}
 		// Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
@@ -74,7 +74,7 @@ public class Script : MonoBehaviour
             //UnityEngine.Debug.Log(speed);
 
             //test[i].Rotate(new Vector3(1f, 0f, 0f), 0.8f, Space.Self);
-            test[i].Rotate(0, 1, 0);
+            test[i].Rotate(0, 45 * Time.deltaTime, 0) ;
             //transform.Rotate(Vector3.up * 50 * Time.deltaTime, Space.Self);
         }
     }
